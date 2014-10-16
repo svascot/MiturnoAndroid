@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.miturnoandroid"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!--
+	  IMPORTANT: If you change the package name of this sample app, change
+	  "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the
+	  lines below to match the new package name.
+    -->
+    <permission
+        android:name="com.example.miturnoandroid.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.miturnoandroid.permission.C2D_MESSAGE" />
+
+    <application
+        android:name="com.turno.miturnoandroid.Application"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <activity
+            android:name="com.turno.miturnoandroid.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.parse.PushService" />
+
+        <receiver android:name="com.parse.ParseBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <!--
+				  IMPORTANT: If you change the package name of this sample app,
+				  change "com.parse.tutorials.pushnotifications" in the lines
+				  below to match the new package name.
+                -->
+                <category android:name="com.example.miturnoandroid" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.turno.miturnoandroid.TurnoActivity"
+            android:label="@string/title_activity_turno"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.turno.miturnoandroid.AtencionActivity"
+            android:label="@string/title_activity_atencion" >
+        </activity>
+        <activity
+            android:name="com.turno.miturnoandroid.PedirTurnoAcitivy"
+            android:label="@string/title_activity_pedir_turno_acitivy" >
+        </activity>
+        <activity
+            android:name="com.turno.miturnoandroid.ValidarActivity"
+            android:label="@string/title_activity_validar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.turno.miturnoandroid.MostrarActivity"
+            android:label="@string/title_activity_mostrar" >
+        </activity>
+        <activity
+            android:name="com.turno.miturnoandroid.ListDepActivity"
+            android:label="@string/title_activity_list_dep" >
+        </activity>
+    </application>
+
+</manifest>

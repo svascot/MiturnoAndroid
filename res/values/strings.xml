@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MiTurno</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_turno">TurnoActivity</string>
+    <string name="title_activity_atencion">AtencionActivity</string>
+    <string name="title_activity_pedir_turno_acitivy">PedirTurnoAcitivy</string>
+    <string name="title_activity_validar">ValidarActivity</string>
+    <string name="title_activity_mostrar">MostrarActivity</string>
+    <string name="title_activity_list_dep">ListDepActivity</string>
+
+</resources>

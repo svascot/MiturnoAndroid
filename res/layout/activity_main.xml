@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.turno.miturnoandroid.MainActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+         
+        <Button
+            android:id="@+id/buttonCollect"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#1bb9f6"
+            android:onClick="callPedirTurno"
+            android:text="PEDIR TURNO"
+            android:textColor="#ffffff"
+            android:textSize="50px"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:background="#8bb9f6"
+            android:text="INGRESAR TURNO"
+            android:textColor="#ffffff"
+            android:textSize="50px"
+            android:textStyle="bold"
+            android:onClick="callListDep" 
+            />
+    </LinearLayout>
+
+</RelativeLayout>
