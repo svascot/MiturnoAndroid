@@ -19,7 +19,7 @@
     <!--
 	  IMPORTANT: If you change the package name of this sample app, change
 	  "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the
-	  lines below to match the new package name.
+	  lines below to match the new package name.
     -->
     <permission
         android:name="com.example.miturnoandroid.permission.C2D_MESSAGE"
@@ -61,42 +61,28 @@
                 <!--
 				  IMPORTANT: If you change the package name of this sample app,
 				  change "com.parse.tutorials.pushnotifications" in the lines
-				  below to match the new package name.
+				  below to match the new package name.
                 -->
                 <category android:name="com.example.miturnoandroid" />
             </intent-filter>
         </receiver>
-
-        <activity
-            android:name="com.turno.miturnoandroid.TurnoActivity"
-            android:label="@string/title_activity_turno"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.turno.miturnoandroid.AtencionActivity"
-            android:label="@string/title_activity_atencion" >
-        </activity>
+      
         <activity
             android:name="com.turno.miturnoandroid.PedirTurnoAcitivy"
-            android:label="@string/title_activity_pedir_turno_acitivy" >
-        </activity>
-        <activity
-            android:name="com.turno.miturnoandroid.ValidarActivity"
-            android:label="@string/title_activity_validar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/title_activity_pedir_turno_acitivy" 
+             android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.turno.miturnoandroid.MostrarActivity"
-            android:label="@string/title_activity_mostrar" >
+            android:label="@string/title_activity_mostrar" 
+             android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.turno.miturnoandroid.ListDepActivity"
-            android:label="@string/title_activity_list_dep" >
+            android:label="@string/title_activity_list_dep" 
+             android:screenOrientation="portrait">
         </activity>
+       
     </application>
 
 </manifest>

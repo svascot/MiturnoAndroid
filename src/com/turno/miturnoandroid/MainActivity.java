@@ -20,16 +20,13 @@ public class MainActivity extends Activity {
 	
 	public void callPedirTurno(View v){
 		Intent myIntent = new Intent(MainActivity.this,
-				PedirTurnoAcitivy.class);
+				ListDepActivity.class);
 
 		MainActivity.this.startActivity(myIntent);
 		
 	}
 	public void callListDep(View v){
-		Intent myIntent = new Intent(MainActivity.this,
-				ListDepActivity.class);
-
-		MainActivity.this.startActivity(myIntent);
+		
 		
 	}
 

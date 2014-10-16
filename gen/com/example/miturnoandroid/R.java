@@ -27,15 +27,15 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f08000a;
         public static final int btnPedirTurno=0x7f080007;
-        public static final int button2=0x7f080003;
-        public static final int buttonCollect=0x7f080002;
+        public static final int button2=0x7f080002;
+        public static final int buttonCollect=0x7f080001;
         public static final int container=0x7f080000;
-        public static final int listView1=0x7f080001;
         public static final int txtAvisame=0x7f080005;
         public static final int txtCodigo=0x7f080009;
         public static final int txtNumerosTurnosEspers=0x7f080006;
+        public static final int txtTituloPedir=0x7f080004;
         public static final int txtTurno=0x7f080008;
-        public static final int txtTurnoDado=0x7f080004;
+        public static final int txtTurnoDado=0x7f080003;
     }
     public static final class layout {
         public static final int activity_list_dep=0x7f030000;
@@ -49,8 +49,9 @@ public final class R {
         public static final int main=0x7f070002;
         public static final int mostrar=0x7f070003;
         public static final int pedir_turno_acitivy=0x7f070004;
-        public static final int turno=0x7f070005;
-        public static final int validar=0x7f070006;
+        public static final int rain=0x7f070005;
+        public static final int turno=0x7f070006;
+        public static final int validar=0x7f070007;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
@@ -60,6 +61,7 @@ public final class R {
         public static final int title_activity_list_dep=0x7f050008;
         public static final int title_activity_mostrar=0x7f050007;
         public static final int title_activity_pedir_turno_acitivy=0x7f050005;
+        public static final int title_activity_rain=0x7f050009;
         public static final int title_activity_turno=0x7f050003;
         public static final int title_activity_validar=0x7f050006;
     }
