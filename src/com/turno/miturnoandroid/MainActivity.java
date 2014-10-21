@@ -25,7 +25,11 @@ public class MainActivity extends Activity {
 		MainActivity.this.startActivity(myIntent);
 		
 	}
-	public void callListDep(View v){
+	public void callCancelar(View v){
+		Intent myIntent = new Intent(MainActivity.this,
+				CanelarActivity.class);
+
+		MainActivity.this.startActivity(myIntent);
 		
 		
 	}

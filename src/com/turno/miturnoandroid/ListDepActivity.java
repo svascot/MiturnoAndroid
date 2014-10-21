@@ -42,7 +42,7 @@ public class ListDepActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_list_dep);
 
-		contenedor = (LinearLayout) findViewById(R.id.container);
+		contenedor = (LinearLayout) findViewById(R.id.conteneder);
 
 		accessWebService();
 	}
@@ -122,6 +122,10 @@ public class ListDepActivity extends Activity {
 				String outPut = name + " - " + number + " turnos esperando";
 
 				Button boton = new Button(this);
+				boton.setLayoutParams(new LinearLayout.LayoutParams(
+						LinearLayout.LayoutParams.FILL_PARENT,
+						LinearLayout.LayoutParams.FILL_PARENT, 1));
+				
 				boton.setText(outPut);
 
 				final String pasarNombre = name;

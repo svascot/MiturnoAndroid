@@ -32,11 +32,11 @@
             android:layout_alignParentRight="true"
             android:layout_weight="1"
             android:background="#8bb9f6"
-            android:text="INGRESAR TURNO"
+            android:text="CANCELAR TURNO"
             android:textColor="#ffffff"
             android:textSize="50px"
             android:textStyle="bold"
-            android:onClick="callListDep" 
+            android:onClick="callCancelar" 
             />
     </LinearLayout>
 
