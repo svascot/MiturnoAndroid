@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
 	
 	public void callPedirTurno(View v){
 		Intent myIntent = new Intent(MainActivity.this,
-				ListDepActivity.class);
+				ListEmpActivity.class);
 
 		MainActivity.this.startActivity(myIntent);
 		

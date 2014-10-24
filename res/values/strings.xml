@@ -12,5 +12,6 @@
     <string name="title_activity_list_dep">ListDepActivity</string>
     <string name="title_activity_rain">RainActivity</string>
     <string name="title_activity_canelar">CanelarActivity</string>
+    <string name="title_activity_list_emp">ListEmpActivity</string>
 
 </resources>

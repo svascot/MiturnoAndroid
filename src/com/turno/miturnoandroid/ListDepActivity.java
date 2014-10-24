@@ -10,10 +10,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,6 +65,13 @@ public class ListDepActivity extends Activity {
 			HttpClient httpclient = new DefaultHttpClient();
 			HttpPost httppost = new HttpPost(params[0]);
 			try {
+				
+				
+				List<NameValuePair> parametros = new ArrayList<NameValuePair>();
+				parametros.add(new BasicNameValuePair("nombreEp", bean.getNombreEmpresa()));
+				
+				httppost.setEntity(new UrlEncodedFormEntity(parametros));
+				
 				HttpResponse response = httpclient.execute(httppost);
 				jsonResult = inputStreamToString(
 						response.getEntity().getContent()).toString();

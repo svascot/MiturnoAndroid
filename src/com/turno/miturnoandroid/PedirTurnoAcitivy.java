@@ -34,6 +34,7 @@ public class PedirTurnoAcitivy extends Activity {
 
 	String turnosEspera;
 	String nombreDep;
+	String nombreEmp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class PedirTurnoAcitivy extends Activity {
 
 		try {
 			nombreDep = bean.getNombreDependencia();
+			nombreEmp = bean.getNombreEmpresa();
 		} catch (Exception e) {
 			
 		}
@@ -70,7 +72,7 @@ public class PedirTurnoAcitivy extends Activity {
 
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("nombreDep", nombreDep));
-			
+			params.add(new BasicNameValuePair("nombreEmp", nombreEmp));
 			
 
 			// Add your data
