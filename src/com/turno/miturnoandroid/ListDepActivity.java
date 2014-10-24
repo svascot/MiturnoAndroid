@@ -23,6 +23,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -129,12 +130,21 @@ public class ListDepActivity extends Activity {
 				String name = jsonChildNode.optString("Dependencia");
 				String number = jsonChildNode.optString("Turnos");
 
-				String outPut = name + " - " + number + " turnos esperando";
+				String outPut = name.toUpperCase() + " \n " + number + " turnos esperando";
 
 				Button boton = new Button(this);
 				boton.setLayoutParams(new LinearLayout.LayoutParams(
 						LinearLayout.LayoutParams.FILL_PARENT,
 						LinearLayout.LayoutParams.FILL_PARENT, 1));
+				
+				boton.setTextSize(30);
+				boton.setTextColor(Color.WHITE);
+				
+				if (i % 2 == 0) {
+					boton.setBackgroundColor(Color.parseColor("#1bb9f6"));
+				} else {
+					boton.setBackgroundColor(Color.parseColor("#8bb9f6"));
+				}
 				
 				boton.setText(outPut);
 
