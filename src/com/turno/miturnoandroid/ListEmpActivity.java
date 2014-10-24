@@ -135,7 +135,7 @@ public class ListEmpActivity extends Activity {
 
 				boton.setLayoutParams(new LinearLayout.LayoutParams(
 						LinearLayout.LayoutParams.MATCH_PARENT,
-						LinearLayout.LayoutParams.MATCH_PARENT, 1));
+						LinearLayout.LayoutParams.FILL_PARENT, 1));
 
 				boton.setTextSize(30);
 				boton.setTextColor(Color.WHITE);
