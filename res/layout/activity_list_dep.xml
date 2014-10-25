@@ -7,32 +7,26 @@
     tools:ignore="MergeRootFrame" >
 
            
-        <ScrollView
-            android:id="@+id/scrollView"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:layout_alignParentLeft="true"
-            android:background="@android:color/darker_gray" >
-
             <LinearLayout
                 android:id="@+id/conteneder"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical" >
-            </LinearLayout>
-        </ScrollView>
+            
+    
 
            <Button
                android:id="@+id/btnCambiarEmpresa"
                android:layout_width="fill_parent"
                android:layout_height="wrap_content"
                android:layout_alignParentBottom="true"
-               android:layout_weight="1"
-               android:background="#8bb9f6"
+               android:background="#ffa800"
                android:text="CAMBIAR EMPRESA"
-               android:textColor="#ffffff"
+               android:textColor="#464646"
                android:textSize="50px"
-               android:textStyle="bold" />
+               android:textStyle="bold"
+               android:onClick="callListEmp"
+                />
+           </LinearLayout>
 
 </RelativeLayout>

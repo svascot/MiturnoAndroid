@@ -21,13 +21,17 @@ import org.json.JSONObject;
 
 import android.R.color;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.miturnoandroid.R;
@@ -135,15 +139,17 @@ public class ListEmpActivity extends Activity {
 
 				boton.setLayoutParams(new LinearLayout.LayoutParams(
 						LinearLayout.LayoutParams.MATCH_PARENT,
-						LinearLayout.LayoutParams.FILL_PARENT, 1));
-
+						LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+				
 				boton.setTextSize(30);
-				boton.setTextColor(Color.WHITE);
+				boton.setTextColor(Color.parseColor("#00aeff"));
+				
+				
 
 				if (i % 2 == 0) {
-					boton.setBackgroundColor(Color.parseColor("#1bb9f6"));
+					boton.setBackgroundColor(Color.parseColor("#282828"));
 				} else {
-					boton.setBackgroundColor(Color.parseColor("#8bb9f6"));
+					boton.setBackgroundColor(Color.parseColor("#464646"));
 				}
 
 				boton.setText(outPut.toUpperCase());
@@ -153,12 +159,19 @@ public class ListEmpActivity extends Activity {
 
 					@Override
 					public void onClick(View v) {
-
+						
 						bean.setNombreEmpresa(pasarNombre);
+						
+						SharedPreferences preferencias = getSharedPreferences("datos",
+								Context.MODE_PRIVATE);
+						preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
+						Editor editor = preferencias.edit();
+						editor.putString("Empresa",pasarNombre);
+						editor.commit();
+						
 						callListDep();
 					}
 				});
-
 				contenedor.addView(boton);
 
 			}

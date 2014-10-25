@@ -22,7 +22,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -58,6 +61,13 @@ public class ListDepActivity extends Activity {
 		ListDepActivity.this.startActivity(myIntent);
 
 	}
+	
+	public void callListEmp(View v){
+		
+		Intent myIntent = new Intent(ListDepActivity.this,
+				ListEmpActivity.class);
+		ListDepActivity.this.startActivity(myIntent);
+	}
 
 	// Async Task to access the web
 	private class JsonReadTask extends AsyncTask<String, Void, String> {
@@ -66,13 +76,13 @@ public class ListDepActivity extends Activity {
 			HttpClient httpclient = new DefaultHttpClient();
 			HttpPost httppost = new HttpPost(params[0]);
 			try {
-				
-				
+
 				List<NameValuePair> parametros = new ArrayList<NameValuePair>();
-				parametros.add(new BasicNameValuePair("nombreEp", bean.getNombreEmpresa()));
-				
+				parametros.add(new BasicNameValuePair("nombreEp", bean
+						.getNombreEmpresa()));
+
 				httppost.setEntity(new UrlEncodedFormEntity(parametros));
-				
+
 				HttpResponse response = httpclient.execute(httppost);
 				jsonResult = inputStreamToString(
 						response.getEntity().getContent()).toString();
@@ -130,22 +140,24 @@ public class ListDepActivity extends Activity {
 				String name = jsonChildNode.optString("Dependencia");
 				String number = jsonChildNode.optString("Turnos");
 
-				String outPut = name.toUpperCase() + " \n " + number + " turnos esperando";
+				String outPut = name.toUpperCase() + " \n " + number
+						+ " turnos esperando";
 
 				Button boton = new Button(this);
 				boton.setLayoutParams(new LinearLayout.LayoutParams(
 						LinearLayout.LayoutParams.FILL_PARENT,
 						LinearLayout.LayoutParams.FILL_PARENT, 1));
-				
-				boton.setTextSize(30);
-				boton.setTextColor(Color.WHITE);
-				
+
+				boton.setTextSize(20);
+
+					boton.setTextColor(Color.parseColor("#ffa800"));
+
 				if (i % 2 == 0) {
-					boton.setBackgroundColor(Color.parseColor("#1bb9f6"));
+					boton.setBackgroundColor(Color.parseColor("#282828"));
 				} else {
-					boton.setBackgroundColor(Color.parseColor("#8bb9f6"));
+					boton.setBackgroundColor(Color.parseColor("#464646"));
 				}
-				
+
 				boton.setText(outPut);
 
 				final String pasarNombre = name;
