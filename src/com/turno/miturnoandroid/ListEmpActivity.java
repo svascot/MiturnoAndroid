@@ -142,10 +142,9 @@ public class ListEmpActivity extends Activity {
 						LinearLayout.LayoutParams.WRAP_CONTENT, 1));
 				
 				boton.setTextSize(30);
-				boton.setTextColor(Color.parseColor("#00aeff"));
+				boton.setTextColor(Color.parseColor("#ffa800"));
 				
-				
-
+			
 				if (i % 2 == 0) {
 					boton.setBackgroundColor(Color.parseColor("#282828"));
 				} else {
@@ -164,6 +163,7 @@ public class ListEmpActivity extends Activity {
 						
 						SharedPreferences preferencias = getSharedPreferences("datos",
 								Context.MODE_PRIVATE);
+						
 						preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
 						Editor editor = preferencias.edit();
 						editor.putString("Empresa",pasarNombre);

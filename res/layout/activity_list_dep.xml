@@ -11,14 +11,18 @@
                 android:id="@+id/conteneder"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:layout_weight="1"
                 android:orientation="vertical" >
             
     
 
+           
+           </LinearLayout>
            <Button
                android:id="@+id/btnCambiarEmpresa"
                android:layout_width="fill_parent"
                android:layout_height="wrap_content"
+               android:layout_weight="1"
                android:layout_alignParentBottom="true"
                android:background="#ffa800"
                android:text="CAMBIAR EMPRESA"
@@ -27,6 +31,5 @@
                android:textStyle="bold"
                android:onClick="callListEmp"
                 />
-           </LinearLayout>
 
 </RelativeLayout>

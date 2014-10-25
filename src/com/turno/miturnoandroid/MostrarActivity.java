@@ -39,6 +39,13 @@ public class MostrarActivity extends Activity {
 		
 		TextView txtTurno = (TextView)findViewById(R.id.txtTurnoDado);
 		txtTurno.setText("codigo: " + Cod + " - Turno: " + Turno);
+		
+		preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
+
+		Editor editor = preferencias.edit();
+		editor.putString("turno","");
+		editor.commit();
+
 	}
 
 

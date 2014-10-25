@@ -61,9 +61,9 @@ public class ListDepActivity extends Activity {
 		ListDepActivity.this.startActivity(myIntent);
 
 	}
-	
-	public void callListEmp(View v){
-		
+
+	public void callListEmp(View v) {
+
 		Intent myIntent = new Intent(ListDepActivity.this,
 				ListEmpActivity.class);
 		ListDepActivity.this.startActivity(myIntent);
@@ -150,7 +150,7 @@ public class ListDepActivity extends Activity {
 
 				boton.setTextSize(20);
 
-					boton.setTextColor(Color.parseColor("#ffa800"));
+				boton.setTextColor(Color.parseColor("#ffa800"));
 
 				if (i % 2 == 0) {
 					boton.setBackgroundColor(Color.parseColor("#282828"));
@@ -165,8 +165,11 @@ public class ListDepActivity extends Activity {
 
 					@Override
 					public void onClick(View v) {
+
 						bean.setNombreDependencia(pasarNombre);
 						callPedirTurno();
+
+
 					}
 				});
 

@@ -22,6 +22,7 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,21 +45,37 @@ public class PedirTurnoAcitivy extends Activity {
 				.permitAll().build();
 		StrictMode.setThreadPolicy(policy);
 
-		TextView titulo = (TextView) findViewById(R.id.txtTituloPedir);
+		TextView titulo = (TextView) findViewById(R.id.txtPedirDep);
 
 		try {
 			nombreDep = bean.getNombreDependencia();
 			nombreEmp = bean.getNombreEmpresa();
 		} catch (Exception e) {
-			
+
 		}
 
-		titulo.setText("Vas a pedir un turno en: " + nombreDep);
+		titulo.setText(nombreDep);
 
 	}
 
 	public void pedir(View v) {
 
+		SharedPreferences preferencias = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
+
+		String turno = preferencias.getString("turno", "");
+
+		if (turno.equals("")) {
+			peticionPedir();
+		} else {
+			Toast.makeText(getApplicationContext(),
+					"Ya pediste un turno, debes cancelarlo o ser atendido.",
+					Toast.LENGTH_LONG).show();
+		}
+	}
+
+	public void peticionPedir() {
 		HttpPost httppost;
 
 		HttpResponse response;
@@ -73,7 +90,6 @@ public class PedirTurnoAcitivy extends Activity {
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("nombreDep", nombreDep));
 			params.add(new BasicNameValuePair("nombreEmp", nombreEmp));
-			
 
 			// Add your data
 			// nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -91,8 +107,8 @@ public class PedirTurnoAcitivy extends Activity {
 			// convertUnix(Long.toString(Calendar.getInstance().getTimeInMillis()))));
 			// nameValuePairs.add(new BasicNameValuePair("outTime",
 			// Long.toString(0)));
-			 httppost.setEntity(new UrlEncodedFormEntity(params));
-//			 Execute HTTP Post Request
+			httppost.setEntity(new UrlEncodedFormEntity(params));
+			// Execute HTTP Post Request
 			response = httpclient.execute(httppost);
 			HttpEntity entity = response.getEntity();
 			htmlResponse = EntityUtils.toString(entity);
@@ -128,11 +144,19 @@ public class PedirTurnoAcitivy extends Activity {
 		editor.putString("turno", Cod + "-" + Turno);
 		editor.commit();
 
+		Button btn = (Button)findViewById(R.id.btnPedirTurno);
+		btn.setVisibility(View.INVISIBLE);
+		
+		TextView txtTuTurno = (TextView) findViewById(R.id.txtTuTurno);
+		txtTuTurno.setVisibility(View.VISIBLE);
+		
 		TextView txtCod = (TextView) findViewById(R.id.txtCodigo);
 		txtCod.setText(Cod);
+		txtCod.setVisibility(View.VISIBLE);
 
 		TextView txtTurno = (TextView) findViewById(R.id.txtTurno);
 		txtTurno.setText(Turno);
+		txtTurno.setVisibility(View.VISIBLE);
 
 	}
 }

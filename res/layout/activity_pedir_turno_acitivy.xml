@@ -11,57 +11,79 @@
         android:layout_height="fill_parent"
         android:orientation="vertical" >
 
-         <TextView
+        <TextView
             android:id="@+id/txtTituloPedir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="35px"
-            android:textColor="@android:color/white"
-            />
-        
-         <TextView
+            android:text="Vas a pedir un turno en:"
+            android:textColor="#ffa800"
+            android:textSize="35px" />
+
+        <TextView
+            android:id="@+id/txtPedirDep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffa800"
+            android:textSize="40px" />
+
+        <TextView
             android:id="@+id/txtAvisame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="35px"
-            android:text="Avisame Faltando" 
-            android:textColor="@android:color/white"
-            />
-         
-         <EditText 
-             android:id="@+id/txtNumerosTurnosEspers"
-             android:layout_width="match_parent"
-           	 android:layout_height="wrap_content"
-           	 android:inputType="numberDecimal"
-             />
-            
-        
-        <Button
-            android:id="@+id/btnPedirTurno"
+            android:text="Te avisaremos faltando"
+            android:textColor="#ffa800"
+            android:textSize="35px" />
+
+        <EditText
+            android:id="@+id/txtNumerosTurnosEspers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pedir Turno" 
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/txtEspacioEnBlanco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffa800"
+            android:textSize="40px" />
+
+        <Button
+            android:id="@+id/btnPedirTurno"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#282828"
             android:onClick="pedir"
-            />
+            android:text="Pedir Turno"
+            android:textColor="#ffa800"
+            android:textSize="50px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtTuTurno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tu turno es:"
+            android:textColor="#ffa800"
+            android:textSize="35px"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/txtTurno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffa800"
             android:textSize="35px"
-            android:text="" 
-            android:textColor="@android:color/white"
-            />
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/txtCodigo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffa800"
             android:textSize="35px"
-            android:text="" 
-            android:textColor="@android:color/white"
-            />
-        
+            android:visibility="invisible" />
     </LinearLayout>
 
 </RelativeLayout>
