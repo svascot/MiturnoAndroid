@@ -121,8 +121,9 @@ public class PedirTurnoAcitivy extends Activity {
 		}
 
 		String[] turno = htmlResponse.split("-");
-		String Turno = turno[1];
+		String sTurnoPedido = turno[1];
 		String Cod = turno[0];
+		String sTurnoActual = turno[2];
 
 		ParseInstallation installation = ParseInstallation
 				.getCurrentInstallation();
@@ -131,9 +132,11 @@ public class PedirTurnoAcitivy extends Activity {
 
 		turnosEspera = turnosEsperaET.getText().toString();
 
+		int iTurnoActual = Integer.parseInt(sTurnoActual);
+		int iTurnoPedido = Integer.parseInt(sTurnoPedido);
+		
 		installation.put("device_id", Cod);
-		// PushService.subscribe(this, "dep4", PedirTurnoAcitivy.class);
-		installation.put("turnos_espera", turnosEspera);
+		installation.put("turnos_espera", (iTurnoPedido - iTurnoActual)-Integer.parseInt(turnosEspera)); //algoritmo de aviso
 		installation.saveInBackground();
 
 		/* escribe un archivo cpon el tunro y el cod */
@@ -141,9 +144,15 @@ public class PedirTurnoAcitivy extends Activity {
 				Context.MODE_PRIVATE);
 		preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
 		Editor editor = preferencias.edit();
-		editor.putString("turno", Cod + "-" + Turno);
+		editor.putString("turno", Cod + "-" + sTurnoPedido);
 		editor.commit();
+		
+		TextView txtAvisame = (TextView) findViewById(R.id.txtAvisame);
+		txtAvisame.setVisibility(View.INVISIBLE);
 
+		
+		turnosEsperaET.setVisibility(View.INVISIBLE);
+		
 		Button btn = (Button)findViewById(R.id.btnPedirTurno);
 		btn.setVisibility(View.INVISIBLE);
 		
@@ -155,7 +164,7 @@ public class PedirTurnoAcitivy extends Activity {
 		txtCod.setVisibility(View.VISIBLE);
 
 		TextView txtTurno = (TextView) findViewById(R.id.txtTurno);
-		txtTurno.setText(Turno);
+		txtTurno.setText(sTurnoPedido);
 		txtTurno.setVisibility(View.VISIBLE);
 
 	}

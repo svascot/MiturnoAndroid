@@ -15,6 +15,7 @@
             android:id="@+id/txtTituloPedir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Vas a pedir un turno en:"
             android:textColor="#ffa800"
             android:textSize="35px" />
@@ -23,13 +24,15 @@
             android:id="@+id/txtPedirDep"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:textColor="#ffa800"
-            android:textSize="40px" />
+            android:textSize="50px" />
 
         <TextView
             android:id="@+id/txtAvisame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Te avisaremos faltando"
             android:textColor="#ffa800"
             android:textSize="35px" />
@@ -38,6 +41,8 @@
             android:id="@+id/txtNumerosTurnosEspers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Ingresa un numero de 3 al 10"
             android:inputType="numberDecimal" />
 
         <TextView
@@ -45,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#ffa800"
-            android:textSize="40px" />
+            android:textSize="50px" />
 
         <Button
             android:id="@+id/btnPedirTurno"
@@ -62,27 +67,30 @@
             android:id="@+id/txtTuTurno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Tu turno es:"
             android:textColor="#ffa800"
-            android:textSize="35px"
+            android:textSize="50px"
             android:visibility="invisible" />
 
         <TextView
             android:id="@+id/txtTurno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text=""
             android:textColor="#ffa800"
-            android:textSize="35px"
+            android:textSize="50px"
             android:visibility="invisible" />
 
         <TextView
             android:id="@+id/txtCodigo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text=""
             android:textColor="#ffa800"
-            android:textSize="35px"
+            android:textSize="50px"
             android:visibility="invisible" />
     </LinearLayout>
 

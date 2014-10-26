@@ -6,30 +6,25 @@
     tools:context="com.turno.miturnoandroid.ListDepActivity"
     tools:ignore="MergeRootFrame" >
 
-           
-            <LinearLayout
-                android:id="@+id/conteneder"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:orientation="vertical" >
-            
-    
+    <LinearLayout
+        android:id="@+id/conteneder"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+    </LinearLayout>
 
-           
-           </LinearLayout>
-           <Button
-               android:id="@+id/btnCambiarEmpresa"
-               android:layout_width="fill_parent"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:layout_alignParentBottom="true"
-               android:background="#ffa800"
-               android:text="CAMBIAR EMPRESA"
-               android:textColor="#464646"
-               android:textSize="50px"
-               android:textStyle="bold"
-               android:onClick="callListEmp"
-                />
+    <Button
+        android:id="@+id/btnCambiarEmpresa"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:background="#ffa800"
+        android:onClick="callListEmp"
+        android:text="CAMBIAR EMPRESA"
+        android:textColor="#464646"
+        android:textSize="50px"
+        android:textStyle="bold" />
 
 </RelativeLayout>
