@@ -17,6 +17,7 @@ import org.apache.http.util.EntityUtils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -90,23 +91,7 @@ public class PedirTurnoAcitivy extends Activity {
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("nombreDep", nombreDep));
 			params.add(new BasicNameValuePair("nombreEmp", nombreEmp));
-
-			// Add your data
-			// nameValuePairs = new ArrayList<NameValuePair>(2);
-			//
-			//
-			// nameValuePairs.add(new BasicNameValuePair("name", nombreDep));
-			// nameValuePairs.add(new BasicNameValuePair("last", last));
-			// nameValuePairs.add(new BasicNameValuePair("idUser", id));
-			// nameValuePairs.add(new BasicNameValuePair("tel", telefono));
-			// nameValuePairs.add(new BasicNameValuePair("carrera", carrera));
-			// nameValuePairs.add(new BasicNameValuePair("genero",genero));
-			// nameValuePairs.add(new BasicNameValuePair("email", email));
-			// nameValuePairs.add(new BasicNameValuePair("idEvent", idevent));
-			// nameValuePairs.add(new BasicNameValuePair("inTime",
-			// convertUnix(Long.toString(Calendar.getInstance().getTimeInMillis()))));
-			// nameValuePairs.add(new BasicNameValuePair("outTime",
-			// Long.toString(0)));
+			
 			httppost.setEntity(new UrlEncodedFormEntity(params));
 			// Execute HTTP Post Request
 			response = httpclient.execute(httppost);
@@ -147,25 +132,15 @@ public class PedirTurnoAcitivy extends Activity {
 		editor.putString("turno", Cod + "-" + sTurnoPedido);
 		editor.commit();
 		
-		TextView txtAvisame = (TextView) findViewById(R.id.txtAvisame);
-		txtAvisame.setVisibility(View.INVISIBLE);
+		callMostrar();
+		
+	}
+	
+	public void callMostrar(){
+		Intent myIntent = new Intent(PedirTurnoAcitivy.this,
+				MostrarActivity.class);
 
-		
-		turnosEsperaET.setVisibility(View.INVISIBLE);
-		
-		Button btn = (Button)findViewById(R.id.btnPedirTurno);
-		btn.setVisibility(View.INVISIBLE);
-		
-		TextView txtTuTurno = (TextView) findViewById(R.id.txtTuTurno);
-		txtTuTurno.setVisibility(View.VISIBLE);
-		
-		TextView txtCod = (TextView) findViewById(R.id.txtCodigo);
-		txtCod.setText(Cod);
-		txtCod.setVisibility(View.VISIBLE);
-
-		TextView txtTurno = (TextView) findViewById(R.id.txtTurno);
-		txtTurno.setText(sTurnoPedido);
-		txtTurno.setVisibility(View.VISIBLE);
-
+		PedirTurnoAcitivy.this.startActivity(myIntent);
+		finish();
 	}
 }

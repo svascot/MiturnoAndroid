@@ -67,6 +67,7 @@ public class ListDepActivity extends Activity {
 		Intent myIntent = new Intent(ListDepActivity.this,
 				ListEmpActivity.class);
 		ListDepActivity.this.startActivity(myIntent);
+		finish();
 	}
 
 	// Async Task to access the web

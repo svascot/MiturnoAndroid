@@ -23,6 +23,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
@@ -39,29 +40,30 @@ import com.parse.ParseInstallation;
 import com.turno.bean.bean;
 
 public class CanelarActivity extends Activity {
-	
+
 	String Cod;
-	
+	TextView txtTurno;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_canelar);
-		
-		SharedPreferences preferencias=getSharedPreferences("datos",Context.MODE_PRIVATE);
-		preferencias=getSharedPreferences("datos",Context.MODE_PRIVATE);  
-			    
-			    
+
+		SharedPreferences preferencias = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
+
 		String strTurno = preferencias.getString("turno", "");
-        
+
 		String[] turno = strTurno.split("-");
 		String Turno = turno[1];
-		 Cod = turno[0];
-		
-		TextView txtTurno = (TextView)findViewById(R.id.txtTurnoCancelar);
-		txtTurno.setText("Deseas cancelar tu turno? codigo: " + Cod + " - Turno: " + Turno);
-	
+		Cod = turno[0];
+
+		txtTurno = (TextView) findViewById(R.id.txtTurnoCancelar);
+		txtTurno.setText("Codigo: " + Cod + " - Turno: " + Turno);
+
 	}
-	
+
 	public void cancelar(View v) {
 		HttpPost httppost;
 
@@ -76,27 +78,9 @@ public class CanelarActivity extends Activity {
 
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("codigo", Cod));
-			
-			
 
-			// Add your data
-			// nameValuePairs = new ArrayList<NameValuePair>(2);
-			//
-			//
-			// nameValuePairs.add(new BasicNameValuePair("name", nombreDep));
-			// nameValuePairs.add(new BasicNameValuePair("last", last));
-			// nameValuePairs.add(new BasicNameValuePair("idUser", id));
-			// nameValuePairs.add(new BasicNameValuePair("tel", telefono));
-			// nameValuePairs.add(new BasicNameValuePair("carrera", carrera));
-			// nameValuePairs.add(new BasicNameValuePair("genero",genero));
-			// nameValuePairs.add(new BasicNameValuePair("email", email));
-			// nameValuePairs.add(new BasicNameValuePair("idEvent", idevent));
-			// nameValuePairs.add(new BasicNameValuePair("inTime",
-			// convertUnix(Long.toString(Calendar.getInstance().getTimeInMillis()))));
-			// nameValuePairs.add(new BasicNameValuePair("outTime",
-			// Long.toString(0)));
-			 httppost.setEntity(new UrlEncodedFormEntity(params));
-//			 Execute HTTP Post Request
+			httppost.setEntity(new UrlEncodedFormEntity(params));
+			// Execute HTTP Post Request
 			response = httpclient.execute(httppost);
 			HttpEntity entity = response.getEntity();
 			htmlResponse = EntityUtils.toString(entity);
@@ -107,19 +91,29 @@ public class CanelarActivity extends Activity {
 			Toast.makeText(getBaseContext(), e.getMessage(), Toast.LENGTH_SHORT)
 					.show();
 		}
-		
+
 		SharedPreferences preferencias = getSharedPreferences("datos",
 				Context.MODE_PRIVATE);
-		
+
 		Toast.makeText(getBaseContext(), "Turno cancelado!", Toast.LENGTH_SHORT)
-		.show();
+				.show();
 
 		preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
 
 		Editor editor = preferencias.edit();
-		editor.putString("turno","");
+		editor.putString("turno", "");
 		editor.commit();
 
+		txtTurno.setText("");
+
+		callMain();
 	}
-	
+
+	public void callMain() {
+		Intent myIntent = new Intent(CanelarActivity.this, MainActivity.class);
+
+		CanelarActivity.this.startActivity(myIntent);
+		finish();
+	}
+
 }

@@ -26,27 +26,35 @@ public class MostrarActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mostrar);
+		
+		/* preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
+		Editor editor = preferencias.edit();
+		editor.putString("turno","");
+		editor.commit();*/
+		
+		mostrar();
 
+	}
+	
+	public void mostrar(){
+		
 		SharedPreferences preferencias=getSharedPreferences("datos",Context.MODE_PRIVATE);
-		preferencias=getSharedPreferences("datos",Context.MODE_PRIVATE);  
-			    
+		preferencias=getSharedPreferences("datos",Context.MODE_PRIVATE);  	    
 			    
 		String strTurno = preferencias.getString("turno", "");
         
 		String[] turno = strTurno.split("-");
-		String Turno = turno[1];
-		String Cod = turno[0];
-		
-		TextView txtTurno = (TextView)findViewById(R.id.txtTurnoDado);
-		txtTurno.setText("codigo: " + Cod + " - Turno: " + Turno);
-		
-		preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
+		String Turno = "Turno : " + turno[1];
+		String Cod = "Codigo : " + turno[0];
+				
+		TextView txtCod = (TextView) findViewById(R.id.txtCodigo);
+		txtCod.setText(Cod);
 
-		Editor editor = preferencias.edit();
-		editor.putString("turno","");
-		editor.commit();
-
+		TextView txtTurnoPedido = (TextView) findViewById(R.id.txtTurno);
+		txtTurnoPedido.setText(Turno);
 	}
+	
+	
 
 
 }

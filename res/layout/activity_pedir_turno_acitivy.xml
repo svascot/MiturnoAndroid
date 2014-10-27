@@ -63,35 +63,7 @@
             android:textSize="50px"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtTuTurno"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Tu turno es:"
-            android:textColor="#ffa800"
-            android:textSize="50px"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/txtTurno"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=""
-            android:textColor="#ffa800"
-            android:textSize="50px"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/txtCodigo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=""
-            android:textColor="#ffa800"
-            android:textSize="50px"
-            android:visibility="invisible" />
+        
     </LinearLayout>
 
 </RelativeLayout>
