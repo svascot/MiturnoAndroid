@@ -4,22 +4,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.R.color;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -29,9 +23,9 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.miturnoandroid.R;
@@ -45,6 +39,10 @@ public class ListEmpActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		// Quita la barra de titulo
+				requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
 		setContentView(R.layout.activity_list_emp);
 
 		contenedor = (LinearLayout) findViewById(R.id.conteneder2);
@@ -132,6 +130,7 @@ public class ListEmpActivity extends Activity {
 
 				JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
 				String name = jsonChildNode.optString("Empresa");
+				String id = jsonChildNode.optString("id");
 
 				String outPut = name;
 
@@ -153,13 +152,13 @@ public class ListEmpActivity extends Activity {
 
 				boton.setText(outPut.toUpperCase());
 
-				final String pasarNombre = name;
+				final String pasarNombre = id;
 				boton.setOnClickListener(new View.OnClickListener() {
 
 					@Override
 					public void onClick(View v) {
 						
-						bean.setNombreEmpresa(pasarNombre);
+						bean.setIdEmpresa(pasarNombre);
 						
 						SharedPreferences preferencias = getSharedPreferences("datos",
 								Context.MODE_PRIVATE);

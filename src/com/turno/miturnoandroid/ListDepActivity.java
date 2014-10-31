@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -22,18 +20,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.miturnoandroid.R;
@@ -47,6 +43,8 @@ public class ListDepActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		// Quita la barra de titulo
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_list_dep);
 
 		contenedor = (LinearLayout) findViewById(R.id.conteneder);
@@ -80,7 +78,7 @@ public class ListDepActivity extends Activity {
 
 				List<NameValuePair> parametros = new ArrayList<NameValuePair>();
 				parametros.add(new BasicNameValuePair("nombreEp", bean
-						.getNombreEmpresa()));
+						.getIdEmpresa()));
 
 				httppost.setEntity(new UrlEncodedFormEntity(parametros));
 
@@ -162,17 +160,57 @@ public class ListDepActivity extends Activity {
 				boton.setText(outPut);
 
 				final String pasarNombre = name;
-				boton.setOnClickListener(new View.OnClickListener() {
+				final String pasarNumber = number;
 
-					@Override
-					public void onClick(View v) {
+				if (Integer.parseInt(pasarNumber) > 3) {
 
-						bean.setNombreDependencia(pasarNombre);
-						callPedirTurno();
+					boton.setOnClickListener(new View.OnClickListener() {
 
+						@Override
+						public void onClick(View v) {
 
-					}
-				});
+							bean.setNombreDependencia(pasarNombre);
+							callPedirTurno();
+
+						}
+					});
+
+				} else {
+
+					boton.setOnClickListener(new View.OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+
+							AlertDialog.Builder alertDialog2 = new AlertDialog.Builder(
+									ListDepActivity.this);
+
+							// Setting Dialog Title
+							alertDialog2.setTitle("Mi Turno");
+
+							// Setting Dialog Message
+							alertDialog2
+									.setMessage("Hay muy pocos turnos en espera, dirígete al lugar y pide el turno allá.");
+
+							// Setting Icon to Dialog
+//							alertDialog2.setIcon(R.drawable.ic_launcher);
+
+							// Setting Positive "Yes" Btn
+							alertDialog2.setPositiveButton("Aceptar",
+									new DialogInterface.OnClickListener() {
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											// Write your code here to execute
+											// after dialog
+											finish();
+										}
+									});
+							// Showing Alert Dialog
+							alertDialog2.show();
+						}
+					});
+				}
 
 				contenedor.addView(boton);
 

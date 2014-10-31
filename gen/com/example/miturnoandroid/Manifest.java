@@ -16,12 +16,6 @@ public final class Manifest {
 
 
 
-
-
-
-
-
-
     
          */
         public static final String C2D_MESSAGE="com.example.miturnoandroid.permission.C2D_MESSAGE";

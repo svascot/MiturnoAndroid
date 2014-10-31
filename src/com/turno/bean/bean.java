@@ -3,7 +3,7 @@ package com.turno.bean;
 public class bean {
 	
 	private static String nombreDependencia;
-	private static String nombreEmpresa;
+	private static String idEmpresa;
 	
 	public static String getNombreDependencia() {
 		return nombreDependencia;
@@ -13,12 +13,12 @@ public class bean {
 		bean.nombreDependencia = nombreDependencia;
 	}
 
-	public static String getNombreEmpresa() {
-		return nombreEmpresa;
+	public static String getIdEmpresa() {
+		return idEmpresa;
 	}
 
-	public static void setNombreEmpresa(String nombreEmpresa) {
-		bean.nombreEmpresa = nombreEmpresa;
+	public static void setIdEmpresa(String nombreEmpresa) {
+		bean.idEmpresa = nombreEmpresa;
 	}
 
 }

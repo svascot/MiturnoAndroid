@@ -23,7 +23,7 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
-import android.widget.Button;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +41,8 @@ public class PedirTurnoAcitivy extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//Quita la barra de titulo
+				requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_pedir_turno_acitivy);
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
 				.permitAll().build();
@@ -50,7 +52,7 @@ public class PedirTurnoAcitivy extends Activity {
 
 		try {
 			nombreDep = bean.getNombreDependencia();
-			nombreEmp = bean.getNombreEmpresa();
+			nombreEmp = bean.getIdEmpresa();
 		} catch (Exception e) {
 
 		}

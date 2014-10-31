@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.turno.miturnoandroid.CanelarActivity"
+    android:background="#282828"
     tools:ignore="MergeRootFrame" >
 
     <LinearLayout
@@ -40,10 +41,10 @@
             android:id="@+id/btnCancelar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#ffa800"
+            android:background="#464646"
             android:onClick="cancelar"
             android:text="Cancelar Turno"
-            android:textColor="#464646"
+            android:textColor="#ffa800"
             android:textSize="50px"
             android:textStyle="bold" />
     </LinearLayout>

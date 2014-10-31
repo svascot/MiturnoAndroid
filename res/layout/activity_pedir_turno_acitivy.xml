@@ -3,6 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#282828"
     tools:context="com.turno.miturnoandroid.PedirTurnoAcitivy"
     tools:ignore="MergeRootFrame" >
 
@@ -16,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:padding="20dp"
             android:text="Vas a pedir un turno en:"
             android:textColor="#ffa800"
             android:textSize="35px" />
@@ -25,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:padding="20dp"
             android:textColor="#ffa800"
             android:textSize="50px" />
 
@@ -33,6 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:padding="20dp"
             android:text="Te avisaremos faltando"
             android:textColor="#ffa800"
             android:textSize="35px" />
@@ -42,28 +46,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Ingresa un numero de 3 al 10"
-            android:inputType="numberDecimal" />
-
-        <TextView
-            android:id="@+id/txtEspacioEnBlanco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:textColor="#ffa800"
-            android:textSize="50px" />
+            android:hint="Ingresa un numero de 3 al 10"
+            android:inputType="numberDecimal"
+            android:padding="30dp" />
 
         <Button
             android:id="@+id/btnPedirTurno"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#282828"
+            android:background="#464646"
             android:onClick="pedir"
+            android:padding="20dp"
             android:text="Pedir Turno"
             android:textColor="#ffa800"
             android:textSize="50px"
             android:textStyle="bold" />
-
-        
     </LinearLayout>
 
 </RelativeLayout>

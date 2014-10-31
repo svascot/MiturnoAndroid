@@ -1,30 +1,21 @@
 package com.turno.miturnoandroid;
 
-import com.example.miturnoandroid.R;
-import com.example.miturnoandroid.R.id;
-import com.example.miturnoandroid.R.layout;
-import com.example.miturnoandroid.R.menu;
-
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TextView;
-import android.os.Build;
+
+import com.example.miturnoandroid.R;
 
 public class MostrarActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//Quita la barra de titulo
+				requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_mostrar);
 		
 		/* preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
