@@ -19,7 +19,7 @@
     <!--
 	  IMPORTANT: If you change the package name of this sample app, change
 	  "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the
-	  lines below to match the new package name.
+	  lines below to match the new package name.
     -->
     <permission
         android:name="com.example.miturnoandroid.permission.C2D_MESSAGE"
@@ -61,8 +61,7 @@
                 <!--
 				  IMPORTANT: If you change the package name of this sample app,
 				  change "com.parse.tutorials.pushnotifications" in the lines
-				  below to match the new package name.
-                -->
+				  below to match the new package name.                -->
                 <category android:name="com.example.miturnoandroid" />
             </intent-filter>
         </receiver>
@@ -89,6 +88,10 @@
         <activity
             android:name="com.turno.miturnoandroid.ListEmpActivity"
             android:label="@string/title_activity_list_emp" >
+        </activity>
+        <activity
+            android:name="com.turno.miturnoandroid.MostrarParseActivity"
+            android:label="@string/title_activity_mostrar_parse" >
         </activity>
     </application>
 

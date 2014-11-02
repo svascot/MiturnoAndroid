@@ -24,8 +24,8 @@ public class Application extends android.app.Application {
 //    installation.saveInBackground();
     // Specify an Activity to handle all pushes by default.
     
-    PushService.subscribe(this, "a", MostrarActivity.class);
-	PushService.setDefaultPushCallback(this, MostrarActivity.class);
+//    PushService.subscribe(this, "a", MostrarActivity.class);
+	PushService.setDefaultPushCallback(this, MostrarParseActivity.class);
 	
 	
   }

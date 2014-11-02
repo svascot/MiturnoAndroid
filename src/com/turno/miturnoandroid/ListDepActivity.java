@@ -21,8 +21,10 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.miturnoandroid.R;
@@ -46,6 +49,15 @@ public class ListDepActivity extends Activity {
 		// Quita la barra de titulo
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_list_dep);
+
+		SharedPreferences preferencias = getSharedPreferences("datos",
+				Context.MODE_PRIVATE);
+		preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
+
+		String nombreEmpresa = preferencias.getString("nombreEmpresa", "");
+
+		TextView titulo = (TextView) findViewById(R.id.txtNombreEmpresa);
+		titulo.setText(nombreEmpresa.toUpperCase());
 
 		contenedor = (LinearLayout) findViewById(R.id.conteneder);
 
@@ -170,7 +182,9 @@ public class ListDepActivity extends Activity {
 						public void onClick(View v) {
 
 							bean.setNombreDependencia(pasarNombre);
+							bean.setMaxEspera(Integer.parseInt(pasarNumber));
 							callPedirTurno();
+							finish();
 
 						}
 					});
@@ -193,7 +207,7 @@ public class ListDepActivity extends Activity {
 									.setMessage("Hay muy pocos turnos en espera, dirígete al lugar y pide el turno allá.");
 
 							// Setting Icon to Dialog
-//							alertDialog2.setIcon(R.drawable.ic_launcher);
+							// alertDialog2.setIcon(R.drawable.ic_launcher);
 
 							// Setting Positive "Yes" Btn
 							alertDialog2.setPositiveButton("Aceptar",

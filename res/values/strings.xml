@@ -13,5 +13,6 @@
     <string name="title_activity_rain">RainActivity</string>
     <string name="title_activity_canelar">CanelarActivity</string>
     <string name="title_activity_list_emp">ListEmpActivity</string>
+    <string name="title_activity_mostrar_parse">MostrarParseActivity</string>
 
 </resources>

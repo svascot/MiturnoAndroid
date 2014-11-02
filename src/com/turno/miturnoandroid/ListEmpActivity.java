@@ -152,20 +152,21 @@ public class ListEmpActivity extends Activity {
 
 				boton.setText(outPut.toUpperCase());
 
-				final String pasarNombre = id;
+				final String pasarId = id;
+				final String pasarNombre = name;
 				boton.setOnClickListener(new View.OnClickListener() {
 
 					@Override
 					public void onClick(View v) {
 						
-						bean.setIdEmpresa(pasarNombre);
-						
+						bean.setIdEmpresa(pasarId);
 						SharedPreferences preferencias = getSharedPreferences("datos",
 								Context.MODE_PRIVATE);
 						
 						preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
 						Editor editor = preferencias.edit();
-						editor.putString("Empresa",pasarNombre);
+						editor.putString("Empresa",pasarId);
+						editor.putString("nombreEmpresa", pasarNombre);
 						editor.commit();
 						
 						callListDep();

@@ -29,6 +29,7 @@
             android:gravity="center"
             android:padding="20dp"
             android:textColor="#ffa800"
+       		android:textColorHint="#c99227"
             android:textSize="50px" />
 
         <TextView
@@ -62,6 +63,8 @@
             android:textColor="#ffa800"
             android:textSize="50px"
             android:textStyle="bold" />
+
+
     </LinearLayout>
 
 </RelativeLayout>

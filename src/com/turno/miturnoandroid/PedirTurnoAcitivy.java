@@ -37,6 +37,8 @@ public class PedirTurnoAcitivy extends Activity {
 	String turnosEspera;
 	String nombreDep;
 	String nombreEmp;
+	Integer maxEspera;
+	EditText turnosEsperaET;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +51,20 @@ public class PedirTurnoAcitivy extends Activity {
 		StrictMode.setThreadPolicy(policy);
 
 		TextView titulo = (TextView) findViewById(R.id.txtPedirDep);
-
+		turnosEsperaET = (EditText) findViewById(R.id.txtNumerosTurnosEspers);
+		
 		try {
 			nombreDep = bean.getNombreDependencia();
 			nombreEmp = bean.getIdEmpresa();
+			maxEspera = bean.getMaxEspera();
+			
 		} catch (Exception e) {
 
 		}
 
 		titulo.setText(nombreDep);
-
+		turnosEsperaET.setHint("Ingresa un numero en 3 y "+ maxEspera+".");
+		
 	}
 
 	public void pedir(View v) {
@@ -115,7 +121,6 @@ public class PedirTurnoAcitivy extends Activity {
 		ParseInstallation installation = ParseInstallation
 				.getCurrentInstallation();
 
-		EditText turnosEsperaET = (EditText) findViewById(R.id.txtNumerosTurnosEspers);
 
 		turnosEspera = turnosEsperaET.getText().toString();
 
@@ -132,6 +137,7 @@ public class PedirTurnoAcitivy extends Activity {
 		preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
 		Editor editor = preferencias.edit();
 		editor.putString("turno", Cod + "-" + sTurnoPedido);
+		editor.putInt("contador", 0);
 		editor.commit();
 		
 		callMostrar();
@@ -145,4 +151,12 @@ public class PedirTurnoAcitivy extends Activity {
 		PedirTurnoAcitivy.this.startActivity(myIntent);
 		finish();
 	}
+	
+	public void onBackPressed() {
+		Intent myIntent = new Intent(PedirTurnoAcitivy.this,
+				ListDepActivity.class);
+		PedirTurnoAcitivy.this.startActivity(myIntent);
+		finish();
+	}
+	
 }
